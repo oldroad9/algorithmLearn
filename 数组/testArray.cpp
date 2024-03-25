@@ -37,7 +37,7 @@ void PrintMatrix(std::vector<std::vector<int>> &v)
 //     return 0;
 // }
 
-int test02()
+void test02()
 {
     int i = 10;
     auto matrix = Solution::generateMatrix(i);

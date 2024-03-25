@@ -108,7 +108,7 @@ public:
         }
         std::cout << std::endl;
     }
-
+    // 实现链表反转
     void reverseList() // 双指针法
     {
         LinkedNode *tmp;
@@ -137,6 +137,119 @@ public:
         LinkedNode *tmp = cur->next;
         cur->next = pre;
         return reverse(cur, tmp);
+    }
+
+    // 实现两两交换
+    void swapPair()
+    {
+        LinkedNode *cur = _dummyHead;
+        LinkedNode *rear = cur->next;
+        //  判断放在前面
+        while ((cur->next != NULL) && (rear->next != NULL))
+        {
+            LinkedNode *tmp = rear;
+            LinkedNode *tmp1 = rear->next->next;
+            // 进行三步交换
+            cur->next = rear->next;
+            rear->next->next = tmp;
+            rear->next = tmp1;
+            // 要移动两位
+            cur = cur->next->next;
+            rear = cur->next;
+        }
+    }
+    //  删除链表的倒数第几个元素
+    void removeLastEle(int index)
+    {
+        LinkedNode *fast = _dummyHead->next;
+        LinkedNode *slow = _dummyHead->next;
+        while (fast->next != NULL)
+        {
+            // 理清逻辑 避免不进入
+            if (index == 0)
+            {
+                slow = slow->next;
+            }
+            if (index != 0)
+                index--;
+            fast = fast->next;
+        }
+        LinkedNode *tmp = slow->next;
+        slow->next = slow->next->next;
+        delete tmp;
+        _size--;
+    }
+
+    void removeLastEle2(int index)
+    {
+        LinkedNode *fast = _dummyHead->next;
+        LinkedNode *slow = _dummyHead->next;
+        // 让fast先走几步
+        while (index-- && fast != NULL)
+        {
+            fast = fast->next;
+        }
+        fast = fast->next;
+        while (fast != NULL)
+        {
+            fast = fast->next;
+            slow = slow->next;
+        }
+        LinkedNode *tmp = slow->next;
+        slow->next = slow->next->next;
+        delete tmp;
+        _size--;
+    }
+
+    LinkedNode *getHead()
+        const
+    {
+        return _dummyHead;
+    }
+
+    int getIntersectionNode(MyLinkedList &linkListA, MyLinkedList &linkListB)
+    {
+        LinkedNode *headA = linkListA.getHead()->next;
+        LinkedNode *headB = linkListB.getHead()->next;
+        int lengthA = getLength(headA);
+        int lengthB = getLength(headB);
+        int diffValue = lengthA >= lengthB ? (lengthA - lengthB) : (lengthB - lengthA);
+        LinkedNode *curA = headA;
+        LinkedNode *curB = headB;
+        if (lengthA >= lengthB)
+        {
+            while (diffValue--)
+            {
+                curA = curA->next;
+            }
+        }
+        else
+        {
+            while (diffValue--)
+            {
+                curB = curB->next;
+            }
+        }
+        while (curA != curB)
+        {
+            curA = curA->next;
+            curB = curB->next;
+        }
+        return curA->val;
+    }
+
+    // 判断链表长度
+    int getLength(LinkedNode *head)
+    {
+        LinkedNode *cur = head;
+        int length = 0;
+        while (cur != NULL)
+        {
+            cur = cur->next;
+            length++;
+        }
+        std::cout << length << std::endl;
+        return length;
     }
 
 private:

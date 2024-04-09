@@ -16,6 +16,13 @@ public:
         if (abs(leftheight - rightheight) > -1)
             return -1;
         else
-            return;
+            return 1 + max(leftheight, rightheight);
+    }
+    
+    bool isBalanceTree(TreeNode *root) {
+        if (getHeight(root) == -1)
+            return false;
+        else
+            return true;
     }
 };

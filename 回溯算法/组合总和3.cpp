@@ -4,7 +4,7 @@
 using namespace std;
 
 class Solution{
-public:
+private:
     vector<vector<int>> result;
     vector<int> path;
     void backtracking(int n, int k, int sum, int startIndex)
@@ -25,9 +25,21 @@ public:
         }
     }
 
-private:
+public:
     vector<vector<int>> combine(int n, int k) {
         backtracking(n, k, 0, 1);
         return result;
     }
 };
+
+
+int main() {
+    Solution s;
+    auto result = s.combine(9, 3);
+    for (auto it = result.begin(); it != result.end();it++) {
+        for (auto ite = (*it).begin(); ite != (*it).end(); ite++){
+            cout << (*ite) << " ";
+        }
+        cout << endl;
+    }
+}

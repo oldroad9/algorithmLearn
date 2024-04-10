@@ -25,3 +25,14 @@ public:
         return result;
     }
 };
+
+int main() {
+    Solution s;
+    auto result = s.combine(4, 2);
+    for (auto it = result.begin(); it != result.end();it++) {
+        for (auto ite = (*it).begin(); ite != (*it).end(); ite++){
+            cout << (*ite) << " ";
+        }
+        cout << endl;
+    }
+}

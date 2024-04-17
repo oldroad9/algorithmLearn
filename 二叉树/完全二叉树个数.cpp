@@ -53,6 +53,6 @@ class Solution{
 			return (2 << leftdepth - 1);
 		} // 左移类似于 2^leftdepth 
 
-		return countNode2(root->left) + countNode2(root->right) + 1;
+		return countNodes2(root->left) + countNodes2(root->right) + 1;
 	}
 };

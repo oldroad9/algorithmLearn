@@ -8,9 +8,11 @@ public:
         if (node == NULL)
             return 0;
         int leftheight = getHeight(node->left);
+
         if (leftheight == -1)
             return -1;
         int rightheight = getHeight(node->right);
+        
         if (rightheight == -1)
             return -1;
         if (abs(leftheight - rightheight) > -1)

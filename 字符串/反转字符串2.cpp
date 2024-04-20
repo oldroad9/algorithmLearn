@@ -1,30 +1,26 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
-class Solution
-{
-public:
+class Solution {
+  public:
     void reverse(string &s, int start, int end)
     {
         // 选择为左闭右开
-        for (int i = start, j = end; i < j; i++, j--)
-        {
+        for (int i = start, j = end; i < j; i++, j--) {
             swap(s[i], s[j]);
         }
     }
     void reverseStr(string &s, int k)
     {
-        for (int i = 0; i < s.size(); i += 2 * k)
-        {
-            if ((s.size() - i >= k) && (s.size() - i < 2 * k) || s.size() - i > 2 * k)
-            {
+        for (int i = 0; i < s.size(); i += 2 * k) {
+            if ((s.size() - i >= k) && (s.size() - i < 2 * k) ||
+                s.size() - i > 2 * k) {
                 reverse(s, i, i + k - 1); // 左闭右开，需要减 1
             }
-            else if (s.size() - i < k)
-            {
+            else if (s.size() - i < k) {
                 reverse(s, i, s.size() - 1);
             }
             // 下面方法更加简洁

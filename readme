@@ -1,4 +1,4 @@
 # 对算法进行学习
 
 json 修改为
-${workspaceFolder}/bin/${fileBasenameNoExtension}"
+${workspaceFolder}/bin/${fileBasenameNoExtension}

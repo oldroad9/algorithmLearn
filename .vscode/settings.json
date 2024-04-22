@@ -46,5 +46,6 @@
         "typeinfo": "cpp",
         "definition": "cpp",
         "stack": "cpp"
-    }
+    },
+    "C_Cpp.default.compilerPath": "E:\\mingw64\\bin\\g++.exe"
 }

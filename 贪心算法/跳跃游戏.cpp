@@ -22,6 +22,7 @@ public:
             return true;
         }
         int maxScope = nums[0];
+        int preMax = 0;
         int startIndex = 0;
         while (startIndex <= maxScope) {
             if (maxScope >= nums.size() - 1) {
